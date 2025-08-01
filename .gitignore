@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules/
+
+# Archivos compilados de MetaTrader
+*.ex4
+*.ex5
+*.dll
+
+# Archivos temporales y backups
+*.tmp
+*.bak
+*.log
+
+# Carpeta de datos local (si tienes alguna)
+\MQL4\Files\
+\MQL4\Logs\
+\MQL4\Tester\
+
+# Archivos del proyecto MetaTrader que no necesitas subir
+*.mqh
+
+# Configuración local y user-specific
+*.ini
+*.set
+
+# Otros
+.DS_Store
+Thumbs.db
