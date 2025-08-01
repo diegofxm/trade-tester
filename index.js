@@ -2,6 +2,10 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+const fs = require('fs');
+const path = require('path');
+
+
 const app = express();
 const PORT = 4000;
 
@@ -116,6 +120,19 @@ app.post('/api/summaries', (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json({ summary_id: this.lastID });
   });
+});
+
+app.get('/delete-db', (req, res) => {
+  try {
+    if (fs.existsSync(dbPath)) {
+      fs.unlinkSync(dbPath);
+      res.send('Base de datos eliminada');
+    } else {
+      res.send('No existe la base de datos');
+    }
+  } catch (error) {
+    res.status(500).send('Error eliminando la base de datos: ' + error.message);
+  }
 });
 
 // ----------------------------
